@@ -9,4 +9,4 @@ example of implementaiton of react.
 utiilized tools for this build:
 
 -  uses react js
-- semantic ui react
+-  bootstrap was intended for this project.
