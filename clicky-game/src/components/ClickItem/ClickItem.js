@@ -3,9 +3,15 @@ import "./ClickItem.css";
 
 // component variable for the click item 
 const ClickItem = props =>(
-    <div>
-        {/* have some onClick function call here */}
-        
+    
+  
+    <div className="card animated rubberBand"
+    role = "img"
+    onClick = {() => props.handleClick(props.id)}
+    style={{ backgroundImage: `url("${props.image}")` }}>
+    {/* <img src ="${props.image}" alt='${props.id}'/> */}
+    text
+    {props.id}
     </div>
 )
 

@@ -14,33 +14,73 @@ class Game extends Component {
     state = { 
         clickTiles,
         score: 0,
-        topScore: 0
+        topScore: 0,
+        message: ''
      }
-
-    //  score and topScore need to be evaluated 
-    //  should document clickTiles on users guess results
-    // what happens if user is correct
-    //what happens if user is incorrect
-
-    // Tiles should be randomized 
-    //(ideally flip card while randomizing)
-//=====NOT WORKING YET==================================
-    randomizer = clickTiles => {
+   componentDidMount() {
+       this.setState({clickTiles:this.randomizer(clickTiles)})
+   }
+    
+    randomizer = data => {
         //use let here because i will be restructured
-        let i = clickTiles.length - 1;
-        if(i>0){
-        // setting var j to be the randomizer variable
-        const j = Math.floor(Math.random()*(i+1))
+        let i = data.length - 1;
+        while (i > 0) {
+          const j = Math.floor(Math.random() * (i + 1));
+          const temp = data[i];
+          data[i] = data[j];
+          data[j] = temp;
+          i--;
         }
+        return data;
+      };
+    clicker = click =>{
+        // changing state calling randomizer function on the tiles
+        this.setState({clickTiles:this.randomizer(clickTiles)})
+        console.log(click);
+    }
+
+    // function for guessing correctly
+    correctGuess = newData => {
+        let newScore = this.state.score;
+        newScore++
+        let NewTopScore = Math.max(newScore, this.state.topScore);
+
+        this.setState({
+            clickTiles: this.randomizer(newData),
+            score: newScore,
+            topScore: NewTopScore
+        })
+    }
+
+    incorrectGuess = newData => {
+        this.setState({
+            clickTiles: this.randomizer(newData),
+            score:0
+        })
     }
     render() { 
         // this will return how the other components will be structured on the page:
         return ( 
             <div>
-                <Nav></Nav>
-                <NavMessage/>
+                <Nav>
+                    <NavMessage
+                    message = {this.state.message}
+                    />
+                <li>
+                    {/* should add in some kind of props call for these score and topScore */}
+                    Score:{this.state.score} | Top Score {this.state.topScore}
+                </li>
+                </Nav>
                 <Container>
-                    <ClickItem/>
+                    {this.state.clickTiles.map(item =>(
+                        <ClickItem 
+                        handleClick = {this.clicker }
+                        image = {item.image}
+                        id = {item.id}
+                        key = {item.id}
+                        />
+                        ) 
+                    )}
                 </Container>
                 <Footer/>
             </div>
