@@ -8,5 +8,6 @@ example of implementaiton of react.
 
 utiilized tools for this build:
 
--  uses react js
+-  Uses react js.
+-  Animate.css used on the tiles.
 -  bootstrap was intended for this project.
