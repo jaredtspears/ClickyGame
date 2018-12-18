@@ -9,8 +9,6 @@ const ClickItem = props =>(
     role = "img"
     onClick = {() => props.handleClick(props.id)}
     style={{ backgroundImage: `url("${props.image}")` }}>
-    {/* <img src ="${props.image}" alt='${props.id}'/> */}
-    text
     {props.id}
     </div>
 )

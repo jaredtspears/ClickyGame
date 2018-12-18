@@ -7,8 +7,8 @@ import "./Nav.css";
 // using props here will push to Game.js
 const Nav = props => (
 <div>
-    <nav className = "navbar navbar-expand-lg navbar-light bg-light">
-   <p>Dragon Ball Z - Clicky Game </p>
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+   <div className="navbar-brand">Dragon Ball Z - Clicky Game </div>
     <ul>
         
             <NavMessage></NavMessage>

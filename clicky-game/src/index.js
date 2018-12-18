@@ -2,6 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import "bootstrap";
+import '../node_modules/bootstrap/dist/css/bootstrap.css';
+
 // not sure what serviceWorker does...
 import * as serviceWorker from './serviceWorker';
 

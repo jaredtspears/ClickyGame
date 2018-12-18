@@ -18,9 +18,20 @@ class Game extends Component {
         message: ''
      }
    componentDidMount() {
-       this.setState({clickTiles:this.randomizer(clickTiles)})
+       this.setState(
+        {clickTiles:this.randomizer(clickTiles)});
+        // this.correctGuess(),
+        // this.incorrectGuess()
+        this.handleIncrement() //not working
    }
     
+   handleIncrement = () =>{
+       const newScore = this.state.score +1; 
+       this.setState({
+           score: newScore
+       })
+       console.log("this is the new score" + newScore);
+   }
     randomizer = data => {
         //use let here because i will be restructured
         let i = data.length - 1;
@@ -63,12 +74,10 @@ class Game extends Component {
         return ( 
             <div>
                 <Nav>
-                    <NavMessage
-                    message = {this.state.message}
-                    />
+                    <NavMessage/>
                 <li>
                     {/* should add in some kind of props call for these score and topScore */}
-                    Score:{this.state.score} | Top Score {this.state.topScore}
+                    Score:{this.state.handleIncrement} | Top Score {this.state.topScore}
                 </li>
                 </Nav>
                 <Container>

@@ -10,28 +10,29 @@ class NavMessage extends Component {
         score:0,
         topScore:0
     }
+    componentDidMount(){
+        this.setState(
+            {score: this.scoreLogger()}
+        )
+    }
     // updates the state each tile click
-    // componentDidUpdate(props) {
-    //     //var for newState when the new state is when the animating is true
-    //     let newState = props.message
+    scoreLogger = (score, topScore) =>{
+        let newState=this.state.message
+        // if score & topScore are zero then the message is blank, otherwise correct or incorrect
+        if(score === 0 && topScore === 0){
+            newState = "";
+        }else if(score !== 0 && topScore > 0){
+            newState = "correct";
+        }else{
+            newState = "incorrect";
+        } 
+        // new state
+        if (score !== this.state.score || this.state.message !== newState.message){
+            this.setState({newState});
+        }
+    }
 
-    //     // scores have to be updated each state - setting to prevProps paramiter
-    //     const {score, topScore} = props.message
-
-    //     // if score & topScore are zero then the message is blank, otherwise correct or incorrect
-    //     if(score === 0 && topScore === 0){
-    //         newState.message = "";
-    //     }else if(score !== 0 && topScore > 0){
-    //         newState.message = "correct";
-    //     }else{
-    //         newState.message = "incorrect";
-    //     } 
-    //     // new state
-    //     if (score !== this.props.score || this.state.message !== newState.message){
-    //         this.setState(newState);
-            
-    //     }
-    // }
+        // const {score, topScore} = this.state.message
 
     // this will be to switch between message options
     switchMessage = () => {
@@ -51,7 +52,9 @@ class NavMessage extends Component {
         return(
             <div>
                 <li>
-                   rendering switch message here (not working yet) {this.switchMessage()}
+                   rendering switch message here (not working yet) 
+                   {this.state.scoreLogger}
+                   {/* {this.state.switchMessage} */}
                 </li>
             </div>
         );
