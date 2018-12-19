@@ -51,11 +51,10 @@ class NavMessage extends Component {
     render(){
         return(
             <div>
-                <li>
                    rendering switch message here (not working yet) 
                    {this.state.scoreLogger}
                    {/* {this.state.switchMessage} */}
-                </li>
+               
             </div>
         );
     }

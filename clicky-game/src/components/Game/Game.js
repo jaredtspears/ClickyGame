@@ -75,10 +75,8 @@ class Game extends Component {
             <div>
                 <Nav>
                     <NavMessage/>
-                <li>
                     {/* should add in some kind of props call for these score and topScore */}
                     Score:{this.state.handleIncrement} | Top Score {this.state.topScore}
-                </li>
                 </Nav>
                 <Container>
                     {this.state.clickTiles.map(item =>(

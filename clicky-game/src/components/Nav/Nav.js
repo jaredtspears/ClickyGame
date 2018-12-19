@@ -7,17 +7,12 @@ import "./Nav.css";
 // using props here will push to Game.js
 const Nav = props => (
 <div>
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-   <div className="navbar-brand">Dragon Ball Z - Clicky Game </div>
-    <ul>
-        
+    <nav className="jumbotron jumbotron-fluid bg-dark">
+   <div className="display-4">Dragon Ball Z - Clicky Game </div>
+    <div className ="lead">
             <NavMessage></NavMessage>
-     
-        <li>
-            {/* should add in some kind of props call for these score and topScore */}
-            Score:{} | Top Score {}
-        </li>
-    </ul>
+             Score:{} | Top Score {}
+    </div>
     </nav>
 </div>
 )
