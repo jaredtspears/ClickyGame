@@ -10,4 +10,4 @@ utiilized tools for this build:
 
 -  Uses react js.
 -  Animate.css used on the tiles.
--  bootstrap was intended for this project.
+-  bootstrap UI
